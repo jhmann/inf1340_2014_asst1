@@ -16,8 +16,20 @@ __status__ = "Prototype"
 
 # imports one per line
 
+def digit(number, n):
+    return int( (number % (10^n) ) / (10 ^ (n-1) ) )
 
 def checksum (upc):
+    if type(upc) != int:
+        raise TypeError
+    if upc < 10^11 | upc >= 10^12:
+        raise ValueError
+
+    sumodd = digit(upc, 2) + digit(upc, 4) + digit(upc, 6) + digit(upc, 8) + digit(upc, 10) + digit(upc, 12)
+    sumeven = digit(upc, 3) + digit(upc, 5) + digit(upc, 7) + digit(upc, 9) + digit(upc, 11)
+    result = 10 - ((sumodd * 3 + sumeven) % 10)
+    return upc % 10 == result
+
     """
     Checks if the digits in a UPC is consistent with checksum
 
@@ -44,5 +56,4 @@ def checksum (upc):
 
     # return True if they are equal, False otherwise
 
-    return False
 
