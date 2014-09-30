@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import pytest
+import exercise3
 from exercise3 import decide_rps
 
 
