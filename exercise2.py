@@ -55,5 +55,3 @@ def checksum (upc):
     # check against the the twelfth digit
 
     # return True if they are equal, False otherwise
-
-
