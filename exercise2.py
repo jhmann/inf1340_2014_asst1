@@ -16,19 +16,22 @@ __status__ = "Prototype"
 
 # imports one per line
 
-def digit(number, n):
-    return int( (number % (10^n) ) / (10 ^ (n-1) ) )
-
 def checksum (upc):
-    if type(upc) != int:
+    if type(upc) != str:
         raise TypeError
-    if upc < 10^11 | upc >= 10^12:
+    if len(upc) != 12:
         raise ValueError
 
-    sumodd = digit(upc, 2) + digit(upc, 4) + digit(upc, 6) + digit(upc, 8) + digit(upc, 10) + digit(upc, 12)
-    sumeven = digit(upc, 3) + digit(upc, 5) + digit(upc, 7) + digit(upc, 9) + digit(upc, 11)
-    result = 10 - ((sumodd * 3 + sumeven) % 10)
-    return upc % 10 == result
+    odd_digits_numbers = upc[0::2]
+    even_digits_numbers = upc[1::2]
+
+    sum = 0
+    for digit in odd_digits_numbers:
+        sum += 3 * int(digit)
+    for digit in even_digits_numbers:
+        sum += int(digit)
+    result = 10 - ((sum - int(upc[11])) % 10)
+    return int(upc[11]) == result
 
     """
     Checks if the digits in a UPC is consistent with checksum

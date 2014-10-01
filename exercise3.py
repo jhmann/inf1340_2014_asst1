@@ -11,7 +11,6 @@ comparator[("Rock", "Scissors")] = 1
 comparator[("Rock", "Paper")] = 2
 comparator[("Rock", "Rock")] = 0
 
-
 def decide_rps(player1, player2):
     return comparator[(player1, player2)]
 
