@@ -41,26 +41,52 @@ def grade_to_gpa(grade):
     """
 
     letter_grade = ""
+    number_grade = 0
     gpa = 0.0
 
     if type(grade) is str:
-        print ("letter") # remove this line once the code is implemented
-        # check that the grade is one of the accepted values
-        # assign grade to letter_grade
+        letter_grade = grade
+        if letter_grade == "A+":
+            gpa = 4.0
+        elif letter_grade == "A":
+            gpa = 4.0
+        elif letter_grade == "A-":
+            gpa = 3.7
+        elif letter_grade == "B+":
+            gpa = 3.3
+        elif letter_grade == "B":
+            gpa = 3.0
+        elif letter_grade == "B-":
+            gpa = 2.7
+        elif letter_grade == "FZ":
+            gpa = 0.0
+        else:
+            raise ValueError
+
     elif type(grade) is int:
-        print("mark") # remove this line once the code is implemented
-        # check that grade is in the accepted range
-        # convert the numeric grade to a letter grade
-        # assign the value to letter_grade
-        # hint: letter_grade = mark_to_letter(grade)
+        number_grade = grade
+        if number_grade >89:
+            gpa = 4.0
+        elif 89 >= number_grade >= 85:
+            gpa = 4.0
+        elif 84 >= number_grade >= 80:
+            gpa = 3.7
+        elif 79 >= number_grade >= 77:
+            gpa = 3.3
+        elif 76 >= number_grade >= 73:
+            gpa = 3.0
+        elif 72 >= number_grade >= 70:
+            gpa = 2.7
+        elif 69 >= number_grade >= 0:
+            gpa = 0.0
+        else:
+            raise ValueError
+
     else:
         # raise a TypeError exception
         raise TypeError("Invalid type passed as parameter")
 
-    # write a long if-statement to convert letter_grade
-    # assign the value to gpa
-    if letter_grade == "A":
-        gpa = 4.0
-
     return gpa
+
+
 
