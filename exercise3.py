@@ -42,4 +42,7 @@ def decide_rps(player1, player2):
     >>> game_rules[("Scissors", "Scissors")]
     0
     """
-    return game_rules[(player1, player2)]
+    try:
+        return game_rules[(player1, player2)]
+    except KeyError:
+        raise ValueError
