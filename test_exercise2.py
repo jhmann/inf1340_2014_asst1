@@ -2,19 +2,17 @@
 
 """ Module to test exercise2.py """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
+__author__ = 'Susan Sim, Jessica Mann and Juntian Wang'
+__email__ = "ses@drsusansim.org, jess.mann@mail.utoronto.ca and justinjtwang@gmail.com"
 
-__copyright__ = "2014 Susan Sim"
+__copyright__ = "2014 Susan Sim, Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Prototype"
-
-# imports one per line
+__status__ = "Version 1"
 
 # imports one per line
 import pytest
-from exercise2 import checksum
+from exercise2_Jess_try import checksum
 
 
 def test_checksum():
@@ -24,8 +22,12 @@ def test_checksum():
     assert checksum("786936224306") is True
     assert checksum("085392132225") is True
     assert checksum("717951000841") is False
-    # other tests
 
+    assert checksum("158635895321") is True   # added test
+    assert checksum("000000000000") is True  # added test
+    assert checksum("123456789012") is True  # added test
+    assert checksum("737373737373") is False  # added test
+    assert checksum("888888888888") is False  # added test
 
 def test_input():
     """
@@ -34,12 +36,16 @@ def test_input():
     with pytest.raises(TypeError):
         checksum(1.0)
         checksum(786936224306)
+        checksum("this is so not a checksum")  # added test: a string
+        checksum((1, 2, 3, "try-a-tuple"))  # added test: a tuple
+        checksum(False)  # added test: a boolean
 
     with pytest.raises(ValueError):
         checksum("1")
         checksum("1234567890")
+        checksum("45890790580938209840986098")  # added test: too long
+        checksum(5*8)  # added test: too short (and also a formula)
 
-    # other tests
 
 # add functions for any other tests
 

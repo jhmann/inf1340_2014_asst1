@@ -2,13 +2,13 @@
 
 """ Module to test exercise1.py """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
+__author__ = 'Susan Sim, Jessica Mann and Juntian Wang'
+__email__ = "ses@drsusansim.org, jess.mann@mail.utoronto.ca and justinjtwang@gmail.com"
 
-__copyright__ = "2014 Susan Sim"
+__copyright__ = "2014 Susan Sim, Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Prototype"
+__status__ = "Version 1"
 
 # imports one per line
 import pytest
@@ -21,15 +21,15 @@ def test_letter_grade():
     """
     assert grade_to_gpa("A+") == 4.0
     assert grade_to_gpa("A") == 4.0
-    assert grade_to_gpa("A-") == 4.0
-    assert grade_to_gpa("B+") == 4.0
-    assert grade_to_gpa("B") == 4.0
-    assert grade_to_gpa("B-") == 4.0
-    assert grade_to_gpa("FZ") == 4.0
+    assert grade_to_gpa("A-") == 3.7
+    assert grade_to_gpa("B+") == 3.3
+    assert grade_to_gpa("B") == 3.0
+    assert grade_to_gpa("B-") == 2.7
+    assert grade_to_gpa("FZ") == 0.0
     
     with pytest.raises(ValueError):
         grade_to_gpa("q")
-    # add more tests for invalid values
+        grade_to_gpa("fun with testing!")
 
 
 def test_percentage_grade():
@@ -75,5 +75,13 @@ def test_float_input():
     """
     with pytest.raises(TypeError):
         grade_to_gpa(82.5)
+        grade_to_gpa(3.141)
+        grade_to_gpa(2.7)
 
-# add functions for any other tests
+
+def test_tuple_input():
+    """
+    Tuple grade inputs
+    """
+    with pytest.raises(TypeError):
+        grade_to_gpa((1, 2, 3, "DANGER, WILL ROBINSON"))
