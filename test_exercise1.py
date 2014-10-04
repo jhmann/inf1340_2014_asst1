@@ -81,7 +81,8 @@ def test_float_input():
 
 def test_tuple_input():
     """
-    Tuple grade inputs
+    Tuple inputs
     """
     with pytest.raises(TypeError):
         grade_to_gpa((1, 2, 3, "DANGER, WILL ROBINSON"))
+

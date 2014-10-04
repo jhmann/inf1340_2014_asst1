@@ -29,6 +29,7 @@ def test_checksum():
     assert checksum("737373737373") is False  # added test
     assert checksum("888888888888") is False  # added test
 
+
 def test_input():
     """
     Inputs that are the incorrect format and length
@@ -46,6 +47,4 @@ def test_input():
         checksum("45890790580938209840986098")  # added test: too long
         checksum(5*8)  # added test: too short (and also a formula)
 
-
-# add functions for any other tests
 
