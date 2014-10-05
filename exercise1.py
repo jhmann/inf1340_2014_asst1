@@ -11,13 +11,13 @@ Example:
 
 """
 
-__author__ = 'Susan Sim'
-__email__ = "ses@drsusansim.org"
+__author__ = 'Susan Sim, Jessica Mann and Juntian Wang'
+__email__ = "ses@drsusansim.org, jess.mann@mail.utoronto.ca and justinjtwang@gmail.com"
 
-__copyright__ = "2014 Susan Sim"
+__copyright__ = "2014 Susan Sim, Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Prototype"
+__status__ = "Version 1"
 
 # imports one per line
 
@@ -41,28 +41,62 @@ def grade_to_gpa(grade):
     """
 
     letter_grade = ""
-    number_grade = 0
     gpa = 0.0
+    legal_letter_grades = ["A+", "A", "A-", "B+", "B", "B-", "FZ"]
 
     if type(grade) is str:
-        letter_grade = grade
-        if letter_grade == "A+":
-            gpa = 4.0
-        elif letter_grade == "A":
-            gpa = 4.0
-        elif letter_grade == "A-":
-            gpa = 3.7
-        elif letter_grade == "B+":
-            gpa = 3.3
-        elif letter_grade == "B":
-            gpa = 3.0
-        elif letter_grade == "B-":
-            gpa = 2.7
-        elif letter_grade == "FZ":
-            gpa = 0.0
+        # check that the grade is one of the accepted values
+        if grade in legal_letter_grades:
+            letter_grade = grade
+        raise ValueError("That's not a valid letter grade.")
+        # assign grade to letter_grade
+    elif type(grade) is int:
+        # check that grade is in the accepted range
+        # convert the numeric grade to a letter grade
+        if grade > 89:
+            mark_to_letter = "A+"
+        elif 89 >= grade >= 85:
+            mark_to_letter = "A"
+        elif 84 >= grade >= 80:
+            mark_to_letter = "A-"
+        elif 79 >= grade >= 77:
+            mark_to_letter = "B+"
+        elif 76 >= grade >= 73:
+            mark_to_letter = "B"
+        elif 72 >= grade >= 70:
+            mark_to_letter = "B-"
+        elif 69 >= grade >= 0:
+            mark_to_letter = "FZ"
         else:
-            raise ValueError
+            raise ValueError("That's not a valid mark.")
+        # assign the value to letter_grade
+        # hint: letter_grade = mark_to_letter(grade)
+        letter_grade = mark_to_letter
 
+
+    # write a long if-statement to convert letter_grade
+    # assign the value to gpa
+    if letter_grade == "A+":
+        gpa = 4.0
+    elif letter_grade == "A":
+        gpa = 4.0
+    elif letter_grade == "A-":
+        gpa = 3.7
+    elif letter_grade == "B+":
+        gpa = 3.3
+    elif letter_grade == "B":
+        gpa = 3.0
+    elif letter_grade == "B-":
+        gpa = 2.7
+    elif letter_grade == "FZ":
+        gpa = 0.0
+    else:
+        # raise a TypeError exception
+        raise TypeError("Invalid type passed as parameter")
+
+
+
+"""
     elif type(grade) is int:
         number_grade = grade
         if number_grade >89:
@@ -85,8 +119,8 @@ def grade_to_gpa(grade):
     else:
         # raise a TypeError exception
         raise TypeError("Invalid type passed as parameter")
+"""
 
-    return gpa
 
 
 
