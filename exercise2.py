@@ -12,7 +12,7 @@ __email__ = "ses@drsusansim.org, jess.mann@mail.utoronto.ca and justinjtwang@gma
 __copyright__ = "2014 Susan Sim, Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Version 2"
+__status__ = "Version 2.1"
 
 
 def checksum(upc):
@@ -55,10 +55,13 @@ def checksum(upc):
         sum_of_odd_and_even += int(digit)
 
     # from modulo 10 of the result, use the modulo or 0 as the final checksum calculation
-    if sum_of_odd_and_even % 10 != 0:
-        calculated_checksum = 10 - (sum_of_odd_and_even % 10)
-    else:
+    """
+    Why won't this work?!?
+    calculated_checksum = 10 - (sum_of_odd_and_even % 10)
+    if sum_of_odd_and_even % 10 == 0:
         calculated_checksum = 0
+    """
+    calculated_checksum = 10 - ((sum_of_odd_and_even - int(upc[11])) % 10)
 
     # check the calculated against the the twelfth digit i.e. the checksum itself
     # return True if they are equal, False otherwise
