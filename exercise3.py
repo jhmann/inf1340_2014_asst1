@@ -12,7 +12,7 @@ __email__ = "jess.mann@mail.utoronto.ca and justinjtwang@gmail.com"
 __copyright__ = "2014 Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Version 2"
+__status__ = "Version 3.1"
 
 
 # create the variable "game_rules" as an empty dictionary to hold the rules for the game
@@ -45,4 +45,4 @@ def decide_rps(player1, player2):
     try:
         return game_rules[(player1, player2)]
     except KeyError:
-        raise ValueError
+        raise ValueError('These are not valid values. Values must be two of "Rock","Scissors", or "Paper"')
