@@ -12,7 +12,7 @@ __email__ = "jess.mann@mail.utoronto.ca and justinjtwang@gmail.com"
 __copyright__ = "2014 Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Version 3.1"
+__status__ = "Version 3.2"
 
 
 # create the variable "game_rules" as an empty dictionary to hold the rules for the game
@@ -36,13 +36,28 @@ game_rules[("Rock", "Rock")] = 0
 
 #create a function called decide_rps
 def decide_rps(player1, player2):
-    """(string, string) -> int
-    Return the key for value inputs player1 and player2 as contained in game_rules
-    Assumes only valid inputs of Scissors, Paper or Rock
-    >>> game_rules[("Scissors", "Scissors")]
-    0
     """
+    Returns the winner of a Rock, Paper, Scissors game.
+
+    :param:
+        player1 (string) and player2 (string): player choices
+            Accepted entries are "Rock", "Paper" or "Scissors"
+
+    :return:
+        int: player1 wins, player2 wins, or tie
+            tie = 0
+            player1 wins = 1
+            player2 wins = 2
+
+    :raises:
+        ValueError if parameter is not a valid entry as noted above
+    """
+
+    # attempt to pass the parameters as dictionary keys and return the appropriate dictionary value
     try:
         return game_rules[(player1, player2)]
+
+    # but if a key error is encountered above, raise a value error (Since returning a value or type error difference
+    # wasn't specified in this exercise, passing a single error message is more efficient.)
     except KeyError:
-        raise ValueError('These are not valid values. Values must be two of "Rock","Scissors", or "Paper"')
+        raise ValueError('These are not valid values. Values must be two of "Rock","Scissors", or "Paper".')

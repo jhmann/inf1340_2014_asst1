@@ -8,7 +8,7 @@ __email__ = "ses@drsusansim.org, jess.mann@mail.utoronto.ca and justinjtwang@gma
 __copyright__ = "2014 Susan Sim, Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Version 2"
+__status__ = "Version 2.1"
 
 # imports one per line
 
@@ -30,6 +30,7 @@ def test_checksum():
     assert decide_rps("Paper", "Rock") == 1
     assert decide_rps("Rock", "Rock") == 0
 
+
 def test_invalid_input():
     """
     Inputs that are invalid
@@ -38,8 +39,6 @@ def test_invalid_input():
         assert decide_rps("Spock", "Lizard")
         assert decide_rps("Spock", "Scissors")
         assert decide_rps("Rock", "Lizard")
-
-        # invalid inputs below are technically not value errors, but returned as value errors for simplicity
         assert decide_rps(1, 5)                                             # testing integers
         assert decide_rps(5.0, 3.141)                                       # testing floats
         assert decide_rps(False, "Different data type")                     # testing differing data types
