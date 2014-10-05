@@ -17,7 +17,7 @@ __email__ = "ses@drsusansim.org, jess.mann@mail.utoronto.ca and justinjtwang@gma
 __copyright__ = "2014 Susan Sim, Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Version 1"
+__status__ = "Version 2"
 
 # imports one per line
 
@@ -47,9 +47,10 @@ def grade_to_gpa(grade):
     if type(grade) is str:
         # check that the grade is one of the accepted values
         if grade in legal_letter_grades:
+            # assign grade to letter_grade
             letter_grade = grade
-        raise ValueError("That's not a valid letter grade.")
-        # assign grade to letter_grade
+        else:
+            raise ValueError("That's not a valid letter grade.")
     elif type(grade) is int:
         # check that grade is in the accepted range
         # convert the numeric grade to a letter grade
@@ -70,9 +71,7 @@ def grade_to_gpa(grade):
         else:
             raise ValueError("That's not a valid mark.")
         # assign the value to letter_grade
-        # hint: letter_grade = mark_to_letter(grade)
         letter_grade = mark_to_letter
-
 
     # write a long if-statement to convert letter_grade
     # assign the value to gpa
@@ -92,35 +91,7 @@ def grade_to_gpa(grade):
         gpa = 0.0
     else:
         # raise a TypeError exception
-        raise TypeError("Invalid type passed as parameter")
-
-
-
-"""
-    elif type(grade) is int:
-        number_grade = grade
-        if number_grade >89:
-            gpa = 4.0
-        elif 89 >= number_grade >= 85:
-            gpa = 4.0
-        elif 84 >= number_grade >= 80:
-            gpa = 3.7
-        elif 79 >= number_grade >= 77:
-            gpa = 3.3
-        elif 76 >= number_grade >= 73:
-            gpa = 3.0
-        elif 72 >= number_grade >= 70:
-            gpa = 2.7
-        elif 69 >= number_grade >= 0:
-            gpa = 0.0
-        else:
-            raise ValueError
-
-    else:
-        # raise a TypeError exception
-        raise TypeError("Invalid type passed as parameter")
-"""
-
-
+        raise TypeError("Invalid type passed as parameter.")
+    return gpa
 
 
