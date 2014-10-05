@@ -55,13 +55,7 @@ def checksum(upc):
         sum_of_odd_and_even += int(digit)
 
     # from modulo 10 of the result, use the modulo or 0 as the final checksum calculation
-    """
-    Why won't this work?!?
-    calculated_checksum = 10 - (sum_of_odd_and_even % 10)
-    if sum_of_odd_and_even % 10 == 0:
-        calculated_checksum = 0
-    """
-    calculated_checksum = 10 - ((sum_of_odd_and_even - int(upc[11])) % 10)
+    calculated_checksum = (10 - ((sum_of_odd_and_even - int(upc[11])) % 10)) % 10
 
     # check the calculated against the the twelfth digit i.e. the checksum itself
     # return True if they are equal, False otherwise

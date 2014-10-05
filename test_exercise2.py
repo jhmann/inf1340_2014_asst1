@@ -25,7 +25,7 @@ def test_checksum():
 
     assert checksum("158635895321") is True   # added test
     assert checksum("123456789012") is True  # added test
-    # assert checksum("000000000000") is True  # added test
+    assert checksum("000000000000") is True  # added test
     assert checksum("737373737373") is False  # added test
     assert checksum("888888888888") is False  # added test
 

@@ -41,7 +41,6 @@ def grade_to_gpa(grade):
     """
 
     letter_grade = ""
-    gpa = 0.0
     legal_letter_grades = ["A+", "A", "A-", "B+", "B", "B-", "FZ"]
 
     if type(grade) is str:
