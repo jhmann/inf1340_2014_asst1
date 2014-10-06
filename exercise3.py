@@ -12,7 +12,7 @@ __email__ = "jess.mann@mail.utoronto.ca and justinjtwang@gmail.com"
 __copyright__ = "2014 Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Version 3.2"
+__status__ = "Final version"
 
 
 # create the variable "game_rules" as an empty dictionary to hold the rules for the game
@@ -40,7 +40,7 @@ def decide_rps(player1, player2):
     Returns the winner of a Rock, Paper, Scissors game.
 
     :param:
-        player1 (string) and player2 (string): player choices
+        player1 (string) and player2 (string): player entries
             Accepted entries are "Rock", "Paper" or "Scissors"
 
     :return:
@@ -53,7 +53,7 @@ def decide_rps(player1, player2):
         ValueError if parameter is not a valid entry as noted above
     """
 
-    # attempt to pass the parameters as dictionary keys and return the appropriate dictionary value
+    # attempt to pass the parameters as game_rules dictionary keys and return the appropriate dictionary value
     try:
         return game_rules[(player1, player2)]
 

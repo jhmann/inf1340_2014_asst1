@@ -8,7 +8,7 @@ __email__ = "ses@drsusansim.org, jess.mann@mail.utoronto.ca and justinjtwang@gma
 __copyright__ = "2014 Susan Sim, Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Version 1"
+__status__ = "Final version"
 
 # imports one per line
 import pytest
@@ -26,10 +26,10 @@ def test_letter_grade():
     assert grade_to_gpa("B") == 3.0
     assert grade_to_gpa("B-") == 2.7
     assert grade_to_gpa("FZ") == 0.0
-    
+
     with pytest.raises(ValueError):
         grade_to_gpa("q")
-        grade_to_gpa("fun with testing!")
+        grade_to_gpa("Fun with testing!")
 
 
 def test_percentage_grade():
@@ -85,4 +85,3 @@ def test_tuple_input():
     """
     with pytest.raises(TypeError):
         grade_to_gpa((1, 2, 3, "DANGER, WILL ROBINSON"))
-

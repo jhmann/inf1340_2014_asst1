@@ -8,7 +8,7 @@ __email__ = "ses@drsusansim.org, jess.mann@mail.utoronto.ca and justinjtwang@gma
 __copyright__ = "2014 Susan Sim, Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Version 2.1"
+__status__ = "Final version"
 
 # imports one per line
 

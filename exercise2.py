@@ -12,7 +12,7 @@ __email__ = "ses@drsusansim.org, jess.mann@mail.utoronto.ca and justinjtwang@gma
 __copyright__ = "2014 Susan Sim, Jessica Mann and Juntian Wang"
 __license__ = "MIT License"
 
-__status__ = "Version 2.1"
+__status__ = "Final version"
 
 
 def checksum(upc):
@@ -35,9 +35,9 @@ def checksum(upc):
 
     # check length of string
     # raise ValueError if not 12 (with error string stating how many digits are over or under)
-    if len(str((upc))) > 12:
+    if len(str(upc)) > 12:
         raise ValueError("This UPC code is too long by " + str((len(str(upc))) - 12) + " characters.")
-    if len(str((upc))) < 12:
+    if len(str(upc)) < 12:
         raise ValueError("This UPC code is too short by " + str(12 - (len(str(upc)))) + " characters.")
 
     # convert string to two arrays needed for the checksum calculation: odd and even numbers
