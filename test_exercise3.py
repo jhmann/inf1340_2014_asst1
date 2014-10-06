@@ -37,11 +37,18 @@ def test_invalid_input():
     """
     with pytest.raises(ValueError):
         assert decide_rps("Spock", "Lizard")
-        assert decide_rps("Spock", "Scissors")
-        assert decide_rps("Rock", "Lizard")
-        assert decide_rps(1, 5)                                             # testing integers
-        assert decide_rps(5.0, 3.141)                                       # testing floats
-        assert decide_rps(False, "Different data type")                     # testing differing data types
-        assert decide_rps("Rock", "Lizard", "Paper", "Scissors", "Spock")   # testing over-long parameters
-        assert decide_rps("Rock")                                           # testing too-short parameters
 
+    with pytest.raises(ValueError):
+        assert decide_rps("Spock", "Scissors")
+
+    with pytest.raises(ValueError):
+        assert decide_rps("Rock", "Lizard")
+
+    with pytest.raises(ValueError):
+        assert decide_rps(1, 5)                                             # testing integers
+
+    with pytest.raises(ValueError):
+        assert decide_rps(5.0, 3.141)                                       # testing floats
+
+    with pytest.raises(ValueError):
+        assert decide_rps(False, "Different data type")                     # testing differing data types

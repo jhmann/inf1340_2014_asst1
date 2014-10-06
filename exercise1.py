@@ -52,7 +52,7 @@ def grade_to_gpa(grade):
     elif type(grade) is int:
         # check that grade is in the accepted range
         # convert the numeric grade to a letter grade
-        if grade > 89:
+        if 100 >= grade >= 89:
             mark_to_letter = "A+"
         elif 89 >= grade >= 85:
             mark_to_letter = "A"

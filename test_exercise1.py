@@ -66,6 +66,8 @@ def test_percentage_grade():
 
     with pytest.raises(ValueError):
         grade_to_gpa(101)
+
+    with pytest.raises(ValueError):
         grade_to_gpa(-1)
 
 
@@ -75,7 +77,11 @@ def test_float_input():
     """
     with pytest.raises(TypeError):
         grade_to_gpa(82.5)
+
+    with pytest.raises(TypeError):
         grade_to_gpa(3.141)
+
+    with pytest.raises(TypeError):
         grade_to_gpa(2.7)
 
 

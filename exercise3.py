@@ -59,5 +59,5 @@ def decide_rps(player1, player2):
 
     # but if a key error is encountered above, raise a value error (Since returning a value or type error difference
     # wasn't specified in this exercise, passing a single error message is more efficient.)
-    except KeyError:
+    except (KeyError, TypeError):
         raise ValueError('These are not valid values. Values must be two of "Rock","Scissors", or "Paper".')
